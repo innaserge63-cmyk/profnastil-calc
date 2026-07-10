@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор профнастила С8</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 20px;
+  color: #1e293b;
+}
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 24px;
+}
+h2 {
+  text-align: center;
+  margin: 0 0 4px 0;
+  color: #0f172a;
+  font-size: 22px;
+}
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 10px;
+}
+.row {
+  display: flex;
+  gap: 12px;
+}
+.col {
+  flex: 1;
+}
+.col label {
+  margin-bottom: 6px;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+.hint {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 8px 0 0 0;
+}
+.option {
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.15s;
+  margin-bottom: 8px;
+}
+.option:last-child { margin-bottom: 0; }
+.option.active {
+  border-color: #38bdf8;
+  background: #f0f9ff;
+}
+.option-name {
+  font-size: 13px;
+}
+.option.active .option-name {
+  font-weight: 600;
+  color: #0284c7;
+}
+.option-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+}
+.option.active .option-price {
+  color: #0284c7;
+}
+.result {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+}
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.result-label {
+  font-size: 13px;
+  color: #94a3b8;
+}
+.result-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+.result-total {
+  border-top: 1px solid #334155;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.result-total-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.result-total-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+.footer {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Калькулятор профнастила С8</h2>
+  <p class="subtitle">Заборы · Фронтоны · Подшивка карнизов</p>
+
+  <div class="card">
+    <label>Тип конструкции</label>
+    <div id="types"></div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="col">
+        <label>Длина конструкции (м)</label>
+        <input id="length" type="number" min="0.3" max="500" step="0.1" value="50" oninput="calculate()">
+      </div>
+      <div class="col">
+        <label>Высота конструкции (м)</label>
+        <input id="height" type="number" min="0.3" max="12" step="0.1" value="1.8" oninput="calculate()">
+      </div>
+    </div>
+    <p class="hint" id="hint"></p>
+  </div>
+
+  <div class="card">
+    <label>Покрытие</label>
+    <div id="coatings"></div>
+  </div>
+
+  <div class="result">
+    <div class="result-row">
+      <span class="result-label">Конструкция:</span>
+      <span class="result-value" id="selType">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Площадь конструкции:</span>
+      <span class="result-value" id="area">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Покрытие:</span>
+      <span class="result-value" id="selCoating">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Кол-во листов:</span>
+      <span class="result-value" id="sheets">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Длина листа:</span>
+      <span class="result-value" id="sheetLen">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Площадь по полной ширине:</span>
+      <span class="result-value" id="sheetArea">—</span>
+    </div>
+    <div class="result-total">
+      <span class="result-total-label">Итого:</span>
+      <span class="result-total-value" id="total">—</span>
+    </div>
+  </div>
+
+  <p class="footer">* Расчёт по полной ширине листа 1,21 м. Запас на подрезку и нахлёст не учтён.</p>
+</div>
+
+<script>
+const types = [
+  { id: 'zabor', name: 'Забор', hint: 'Типовая высота: 1,5–2,5 м. Длина: 10–100 м.' },
+  { id: 'fronton', name: 'Фронтон', hint: 'Типовая высота: 2–4 м. Длина: 3–10 м.' },
+  { id: 'podshiv', name: 'Подшивка карниза', hint: 'Типовая высота: 0,3–0,6 м. Длина: 10–50 м.' },
+];
+
+const coatings = [
+  { id: 1, name: 'Полиэстер 0,4 мм', price: 415 },
+  { id: 2, name: 'Полиэстер 0,45 мм', price: 470 },
+  { id: 3, name: 'Полиэстер 0,45 мм НЛМК', price: 495 },
+  { id: 4, name: 'Матовый полиэстер 0,35 мм', price: 470 },
+  { id: 5, name: 'Матовый полиэстер 0,45 мм', price: 555 },
+  { id: 6, name: 'Матовый полиэстер 0,45 мм НЛМК', price: 575 },
+  { id: 7, name: 'Матовый полиэстер 0,5 мм', price: 710 },
+];
+
+let selectedTypeId = 'zabor';
+let selectedCoatingId = 1;
+const usefulWidth = 1.18;
+const fullWidth = 1.21;
+
+function renderTypes() {
+  const container = document.getElementById('types');
+  container.innerHTML = types.map(t => `
+    <div onclick="selectType('${t.id}')" id="type-${t.id}" class="option ${t.id === selectedTypeId ? 'active' : ''}">
+      <span class="option-name">${t.name}</span>
+    </div>
+  `).join('');
+  const hint = types.find(t => t.id === selectedTypeId)?.hint || '';
+  document.getElementById('hint').textContent = hint;
+}
+
+function renderCoatings() {
+  const container = document.getElementById('coatings');
+  container.innerHTML = coatings.map(c => `
+    <div onclick="selectCoating(${c.id})" id="coating-${c.id}" class="option ${c.id === selectedCoatingId ? 'active' : ''}">
+      <span class="option-name">${c.name}</span>
+      <span class="option-price">${c.price} ₽/м²</span>
+    </div>
+  `).join('');
+}
+
+function selectType(id) {
+  selectedTypeId = id;
+  renderTypes();
+  calculate();
+}
+
+function selectCoating(id) {
+  selectedCoatingId = id;
+  renderCoatings();
+  calculate();
+}
+
+function calculate() {
+  let length = parseFloat(document.getElementById('length').value) || 0;
+  let height = parseFloat(document.getElementById('height').value) || 0;
+  if (length < 0.3) length = 0.3;
+  if (height < 0.3) height = 0.3;
+  if (height > 12) height = 12;
+
+  const area = length * height;
+  const coating = coatings.find(c => c.id === selectedCoatingId);
+  const type = types.find(t => t.id === selectedTypeId);
+  
+  const sheets = Math.ceil(length / usefulWidth);
+  const totalSheetArea = sheets * height * fullWidth;
+  const total = Math.round(totalSheetArea * coating.price);
+
+  document.getElementById('selType').textContent = type.name;
+  document.getElementById('area').textContent = area.toFixed(2) + ' м²';
+  document.getElementById('selCoating').textContent = coating.name;
+  document.getElementById('sheets').textContent = sheets + ' шт.';
+  document.getElementById('sheetLen').textContent = height.toFixed(1) + ' м';
+  document.getElementById('sheetArea').textContent = totalSheetArea.toFixed(3) + ' м²';
+  document.getElementById('total').textContent = total.toLocaleString('ru-RU') + ' ₽';
+}
+
+renderTypes();
+renderCoatings();
+calculate();
+</script>
+</body>
+</html>
