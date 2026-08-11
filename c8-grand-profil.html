@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Калькулятор С8 Гранд Профиль</title>
 
-<!-- Open Graph / Telegram / WhatsApp preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://innaserge63-cmyk.github.io/profnastil-calc/c8-grand-profil.html">
 <meta property="og:title" content="С8 Гранд Профиль — Калькулятор профнастила">
@@ -14,6 +13,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ru_RU">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="С8 Гранд Профиль — Калькулятор профнастила">
+<meta name="twitter:description" content="Расчёт заборов из профнастила С8. 11 видов покрытия. Быстрый онлайн-расчёт стоимости.">
+<meta name="twitter:image" content="https://innaserge63-cmyk.github.io/profnastil-calc/preview.png">
 
 <style>
 * { box-sizing: border-box; }
@@ -210,11 +214,11 @@ input[type="number"]:focus {
     <div class="row">
       <div class="col">
         <label>Длина забора (м)</label>
-        <input type="number" id="length" value="10" min="0.1" max="500" step="0.1">
+        <input type="number" id="length" value="50" min="0.1" max="500" step="0.1">
       </div>
       <div class="col">
         <label>Высота забора (м)</label>
-        <input type="number" id="height" value="2" min="0.5" max="6" step="0.1">
+        <input type="number" id="height" value="2" min="0.5" max="6" step="0.01">
       </div>
     </div>
     <p class="hint">Типовая высота: 1,5–2,5 м. Длина: 1–200 м.</p>
@@ -227,18 +231,6 @@ input[type="number"]:focus {
 
   <div class="result">
     <div class="result-row">
-      <span class="result-label">Конструкция</span>
-      <span class="result-value" id="selType">—</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">Площадь конструкции</span>
-      <span class="result-value" id="area">—</span>
-    </div>
-    <div class="result-row">
-      <span class="result-label">Покрытие</span>
-      <span class="result-value" id="selCoating">—</span>
-    </div>
-    <div class="result-row">
       <span class="result-label">Кол-во листов</span>
       <span class="result-value" id="sheets">—</span>
     </div>
@@ -247,7 +239,11 @@ input[type="number"]:focus {
       <span class="result-value" id="sheetLen">—</span>
     </div>
     <div class="result-row">
-      <span class="result-label">Площадь по полной ширине</span>
+      <span class="result-label">Площадь забора</span>
+      <span class="result-value" id="area">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Площадь материала (с нахлёстом)</span>
       <span class="result-value" id="sheetArea">—</span>
     </div>
     <div class="result-total">
@@ -257,8 +253,8 @@ input[type="number"]:focus {
   </div>
 
   <p class="footer">
-    Расчёт по полной ширине листа 1,20 м.<br>
-    Запас на подрезку и нахлёст не учтён.
+    Расчёт по полной ширине листа 1,20 м. Полезная ширина 1,15 м.<br>
+    Запас на подрезку не учтён.
   </p>
 </div>
 
@@ -314,12 +310,10 @@ function calculate() {
   const totalSheetArea = sheets * height * fullWidth;
   const total = Math.round(totalSheetArea * coating.price);
 
-  document.getElementById('selType').textContent = 'Забор';
-  document.getElementById('area').textContent = area.toFixed(2) + ' м²';
-  document.getElementById('selCoating').textContent = coating.name;
   document.getElementById('sheets').textContent = sheets + ' шт.';
-  document.getElementById('sheetLen').textContent = height.toFixed(1) + ' м';
-  document.getElementById('sheetArea').textContent = totalSheetArea.toFixed(3) + ' м²';
+  document.getElementById('sheetLen').textContent = height.toFixed(2) + ' м';
+  document.getElementById('area').textContent = area.toFixed(2) + ' м²';
+  document.getElementById('sheetArea').textContent = totalSheetArea.toFixed(2) + ' м²';
   document.getElementById('total').textContent = total.toLocaleString('ru-RU') + ' ₽';
 }
 
