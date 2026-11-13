@@ -1,0 +1,386 @@
+{
+  "original_bytes": 18581377,
+  "compact_bytes": 39473,
+  "images": [
+    {
+      "number": 1,
+      "length": 84287,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 2,
+      "length": 84287,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 3,
+      "length": 198051,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 4,
+      "length": 198467,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 5,
+      "length": 226079,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 6,
+      "length": 208983,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 7,
+      "length": 164163,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 8,
+      "length": 127927,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 9,
+      "length": 156351,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 10,
+      "length": 163127,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 11,
+      "length": 131291,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 12,
+      "length": 161263,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 13,
+      "length": 186159,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 14,
+      "length": 142599,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 15,
+      "length": 126359,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 16,
+      "length": 160259,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 17,
+      "length": 106667,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 18,
+      "length": 112107,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 19,
+      "length": 183055,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 20,
+      "length": 122047,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 21,
+      "length": 175431,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 22,
+      "length": 89919,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 23,
+      "length": 94599,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 24,
+      "length": 84287,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 25,
+      "length": 967235,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 26,
+      "length": 984595,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 27,
+      "length": 621727,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 28,
+      "length": 1000163,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 29,
+      "length": 730987,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 30,
+      "length": 582847,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 31,
+      "length": 558527,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 32,
+      "length": 589639,
+      "type": "data:image/webp"
+    },
+    {
+      "number": 33,
+      "length": 438171,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 34,
+      "length": 470731,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 35,
+      "length": 403815,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 36,
+      "length": 382207,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 37,
+      "length": 414423,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 38,
+      "length": 219267,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 39,
+      "length": 295123,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 40,
+      "length": 204143,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 41,
+      "length": 236147,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 42,
+      "length": 340679,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 43,
+      "length": 190583,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 44,
+      "length": 211699,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 45,
+      "length": 183787,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 46,
+      "length": 210871,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 47,
+      "length": 217483,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 48,
+      "length": 217483,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 49,
+      "length": 217483,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 50,
+      "length": 85611,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 51,
+      "length": 89299,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 52,
+      "length": 88883,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 53,
+      "length": 83771,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 54,
+      "length": 85611,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 55,
+      "length": 89299,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 56,
+      "length": 88883,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 57,
+      "length": 83771,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 58,
+      "length": 85611,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 59,
+      "length": 89299,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 60,
+      "length": 88883,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 61,
+      "length": 83771,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 62,
+      "length": 85611,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 63,
+      "length": 89299,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 64,
+      "length": 88883,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 65,
+      "length": 83771,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 66,
+      "length": 97631,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 67,
+      "length": 91991,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 68,
+      "length": 97631,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 69,
+      "length": 91991,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 70,
+      "length": 290007,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 71,
+      "length": 376671,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 72,
+      "length": 407063,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 73,
+      "length": 336075,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 74,
+      "length": 305043,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 75,
+      "length": 374819,
+      "type": "data:image/jpeg"
+    },
+    {
+      "number": 76,
+      "length": 308187,
+      "type": "data:image/jpeg"
+    }
+  ]
+}
