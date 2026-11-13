@@ -1,0 +1,40 @@
+name: Extract compact HTML source
+on:
+  push:
+    paths:
+      - '.github/workflows/extract-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make readable source copy without embedded image bytes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+          source=Path('index.html').read_text(encoding='utf-8')
+          pattern=r'data:image/[^;\s"\x27)]+;base64,[A-Za-z0-9+/=]+'
+          images=[]
+          def replace(m):
+              images.append({'number':len(images)+1,'length':len(m.group(0)),'type':m.group(0).split(';',1)[0]})
+              return 'IMAGE_DATA_REMOVED_FOR_SOURCE_INSPECTION'
+          compact=re.sub(pattern,replace,source)
+          out=Path('_source-inspection')
+          out.mkdir(exist_ok=True)
+          (out/'index-source.html').write_text(compact,encoding='utf-8')
+          (out/'report.json').write_text(json.dumps({'original_bytes':len(source.encode()),'compact_bytes':len(compact.encode()),'images':images},ensure_ascii=False,indent=2),encoding='utf-8')
+          print('Original:',len(source),'Compact:',len(compact),'Images:',len(images))
+          PY
+      - name: Commit inspection copy only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _source-inspection/index-source.html _source-inspection/report.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Add compact read-only copy of selector source"
+            git push
+          fi
